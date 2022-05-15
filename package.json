@@ -36,7 +36,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys-md": "^4.1.0",
+        "@adiwajshing/baileys": "^4.1.0",
         "@adiwajshing/keyed-db": "^0.2.4",
         "awesome-phonenumber": "^2.64.0",
         "axios": "^0.24.0",
@@ -54,6 +54,7 @@
         "human-readable": "^0.2.1",
         "hxz-api": "^1.0.1",
         "jsdom": "^18.1.1",
+        "lyrics-finder": "^21.7.0",
         "lodash": "^4.17.21",
         "lowdb": "^2.1.0",
         "mongoose": "^6.0.14",

@@ -95,6 +95,7 @@ module.exports = {
                     if (!isNumber(user.lasthunt)) user.lasthunt = 0
                     if (!isNumber(user.lastweekly)) user.lastweekly = 0
                     if (!isNumber(user.lastmonthly)) user.lastmonthly = 0
+                    if (!('pasangan' in user)) user.pasangan = ''
                 } else global.db.data.users[m.sender] = {
                     exp: 0,
                     limit: 10,
@@ -119,6 +120,7 @@ module.exports = {
                     kayu: 0,
                     batu: 0,
                     string: 0,
+                    pasangan: '',
 
                     emerald: 0,
                     diamond: 0,
@@ -341,11 +343,11 @@ module.exports = {
                     if (xp > 200) m.reply('Ngecit -_-') // Hehehe
                     else m.exp += xp
                     if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-                        this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+                        conn.sendBut(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, wm, 'Beli', '.buy', m)
                         continue // Limit habis
                     }
                     if (plugin.level > _user.level) {
-                        this.reply(m.chat, `diperlukan level ${plugin.level} untuk menggunakan perintah ini. Level kamu ${_user.level}`, m)
+                        conn.sendBut(m.chat, `diperlukan level ${plugin.level} untuk menggunakan perintah ini. Level kamu ${_user.level}`, wm, 'Level Up', '.levelup', m)
                         continue // If the level has not been reached
                     }
                     let extra = {
@@ -498,7 +500,7 @@ Untuk mematikan fitur ini, ketik
 
 global.dfail = (type, m, conn) => {
     let msg = {
-        rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
+        rowner: 'Perintah ini hanya dapat digunakan oleh _*Pemilik Bot*_',
         owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
         mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
         premium: 'Perintah ini hanya untuk member _*Premium*_ !',
@@ -509,7 +511,7 @@ global.dfail = (type, m, conn) => {
         unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
         restrict: 'Fitur ini di *disable*!'
     }[type]
-    if (msg) return m.reply(msg)
+    if (msg) return conn.sendBut(m.chat, msg, wm, 'ok', 'ok', m)
 }
 
 let fs = require('fs')
