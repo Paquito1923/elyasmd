@@ -1,2 +1,2 @@
-worker: npm start
+worker: npm start --db 'mongodb+srv://elyas:elyas@cluster0 .zvicx.mongodb.net/myFirstDatabase ?retryWrites=true&w=majority'
 
