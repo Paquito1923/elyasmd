@@ -43,7 +43,7 @@ let handler = async (m, { conn, isROwner, text }) => {
 }
 handler.help = ['bc <teks>']
 handler.tags = ['owner']
-handler.command = /^(broadcasta|bc)?$/i
+handler.command = /^broadcasta|bc$/i
 
 handler.owner = true
 
