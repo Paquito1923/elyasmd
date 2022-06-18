@@ -230,11 +230,11 @@ module.exports = {
             let isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
             let isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
             let groupMetadata = (m.isGroup ? (conn.chats[m.chat] || {}).metadata : {}) || {}
-            let participants = (m.isGroup ? groupMetadata.participants : []) || []
-            let user = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) === m.sender) : {}) || {} // User Data
-            let bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == this.user.jid) : {}) || {} // Your Data
-            let isAdmin = user && user.admin || false // Is User Admin?
-            let isBotAdmin = bot && bot.admin || false // Are you Admin?
+            const participants = (m.isGroup ? groupMetadata.participants : []) || [] 
+            const user = (m.isGroup ? participants.find(u => this.decodeJid(u.id) === m.sender) : {}) || {} // User Data
+            const bot = (m.isGroup ? participants.find(u => this.decodeJid(u.id) == this.user.jid) : {}) || {} // Your Data 
+            const isAdmin = user && user?.admin || false // Is User Admin? 
+            const isBotAdmin = bot && bot?.admin || false // Are you Admin?
             for (let name in global.plugins) {
                 let plugin = global.plugins[name]
                 if (!plugin) continue
