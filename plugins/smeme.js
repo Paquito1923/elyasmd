@@ -12,18 +12,15 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let url = await uploadImage(img)
     meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${url}`
 try {
-    let stiker = await sticker(null, meme, global.packname, global.author)
-    await conn.sendMessage(m.chat, stiker, MessageType.sticker, {
-      quoted: m
-    })
+    conn.sendImageAsSticker(m.chat , meme, m, {packname: global.packname, author: global.author})
   } catch (e) {
     m.reply('gagal membuat stiker, Mencoba Mengirim gambar')
     await conn.sendFile(m.chat, meme, 'image.png', 'Nih Banh', m)
   }
 }
-handler.help = ['smeme<teks atas>|<teks bawah>']
+handler.help = ['smeme<teks atas>|<teks bawah>', 'smeme<teks atas>|<teks bawah>']
 handler.tags = ['sticker']
-handler.command = /^(smeme)$/i
+handler.command = /^(smeme|smim)$/i
 
 handler.limit = false
 
