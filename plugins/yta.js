@@ -19,9 +19,7 @@ silahkan klik link di atas untuk mendownloadnya
   if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp3', `
 *Title:* ${title}
 *Filesize:* ${filesizeF}
-`.trim(), m, null, {
-  asDocument: chat.useDocument
-})
+`.trim(), m)
 }
 handler.help = ['mp3','a'].map(v => 'yt' + v + ` <url>`)
 handler.tags = ['downloader']
