@@ -61,13 +61,6 @@ dan ketik .ytv link YouTube Untuk Mengunduh Video`,
             },
                {
              quickReplyButton: {
-               displayText: 'video 720p',
-               id: `.ytv720 ${vid.url}`,
-             }
-
-            },
-               {
-             quickReplyButton: {
                displayText: 'Audio',
                id: `.ytmp3 ${vid.url}`,
              }
