@@ -139,9 +139,12 @@ node .
 ## UNTUK PENGGUNA HEROKU
 
 ### Instal Buildpack
-* heroku/nodejs
-* https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
-* https://github.com/clhuang/heroku-buildpack-webp-binaries*
+``` heroku/nodejs```
+
+``` https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git```
+
+``` https://github.com/clhuang/heroku-buildpack-webp-binaries```
+
 
 ## Installing the FFmpeg for Windows
 * Unduh salah satu versi FFmpeg yang tersedia dengan mengklik [di sini](https://www.gyan.dev/ffmpeg/builds/).
