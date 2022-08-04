@@ -9,7 +9,7 @@ let handler  = async (m, { conn, text }) => {
     let caption = `
 Pikacu
 `.trim()
-    conn.sendFile(m.chat, json.link, '', caption, m)
+    conn.sendImageAsSticker(m.chat , json.link, m, {packname: global.packname, author: global.author})
    } catch (e) {
         console.log(e)
         throw '_*Error!*_'
